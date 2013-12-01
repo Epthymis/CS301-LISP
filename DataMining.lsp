@@ -16,7 +16,11 @@
 	; Takes in attribute value and attribute number
 	; Uses *Attribute-Values*
 	; Returns an offset number
-
+(defun lookup
+		(val attr-num) ; actual value of attribute and attribute number
+		(return (position val (nth attr-num *attribute-values*))) ; Skip the function call and just use what is in the return statement
+	)
+	
 ; Find Subset
 (defun find-subset
 		(#| parameters |#)
@@ -36,7 +40,7 @@
 			(append parts '()) ; Add an empty list onto the end of 
 			) ; Possibly replace this with a function that returns an empty array list
 		(dotimes (i length(*table*))
-			(append (nth (lookup()) ()) (i)) ; Add item to correct spot in parts
+			(append (nth (lookup (nth (car attributes ) i)) i ) (i)) ; Add item to correct spot in parts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Do shit here when you get a white board
 			)
 		(setf *partisions* (nil) ; Make the final list to be returned
@@ -45,8 +49,7 @@
 					)
 				)
 			)
-
-		; return final-part
+			(return *partitions*)
 		)
 	)
 

@@ -71,3 +71,11 @@ cons takes an item and a list, and returns a new list consisting of the old list
 
 '( list ) returns the list as text, does not evaluate
 
+
+http://www.cs.umd.edu/~nau/cmsc421/lisp-intro.pdf
+https://www.cs.drexel.edu/~jpopyack/Courses/AI/Wi13/extras/LISP/LISP_commands.html
+http://www.cs.cmu.edu/~ggordon/lisp-hints.txt
+http://en.wikipedia.org/wiki/Common_Lisp
+http://common-lisp.net/language.html
+http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node158.html#SECTION002110000000000000000
+
