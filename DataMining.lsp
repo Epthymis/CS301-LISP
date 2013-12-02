@@ -2,7 +2,6 @@
 ; *Table*: A 2d array holding the full table
 
 ;;;;;;;;;; Major Variables ;;;;;;;;;;
-; *Attributes*: A list of all attributes
 ; *Attribute-Values*: A list of all of the possible values of the attribute
 	; Possibly make this replace Attributes
 ; *DA*: A list holding the chosen decision attributes
