@@ -39,8 +39,7 @@
 			(append parts '()) ; Add an empty list onto the end of 
 			) ; Possibly replace this with a function that returns an empty array list
 		(dotimes (i length(*table*))
-			(append (nth (lookup (nth (car attributes ) i)) i ) (i)) ; Add item to correct spot in parts
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Do shit here when you get a white board
+			(append (nth (position (nth (car attributes) (nth i *table*)) (nth (car attributes) *attribute-values*)) parts) i) ; Add item to correct spot in parts
 			)
 		(setf *partisions* (nil) ; Make the final list to be returned
 			(dolist (i parts) ; For each element of parts
@@ -53,6 +52,25 @@
 	)
 
 ; Repeat for size 1 thru x
+(defun partition-1-attribute ; Partitioning algorithm for 1 attribute
+		(attributes) ; List containing attribute
+	(let parts () ; 'Table of attribute value combinations
+		(dotimes (i (length (nth (car attributes) *attriutes-values*)))
+			(append parts '()) ; Add an empty list onto the end of 
+			) ; Possibly replace this with a function that returns an empty array list
+		(dotimes (i length(*table*))
+			(append (nth (lookup (nth (car attributes ) i)) i ) (i)) ; Add item to correct spot in parts
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Do shit here when you get a white board
+			)
+		(setf *partisions* (nil) ; Make the final list to be returned
+			(dolist (i parts) ; For each element of parts
+				(append *partitions* (if i) ; If non empty the partition will be returned and appended to *partitions*
+					)
+				)
+			)
+			(return *partitions*)
+		)
+	)
 
 ; Is a partition-a a proper subset of partition-b
 	; Takes two partitions
@@ -94,14 +112,46 @@
 ;	Sort values in *decision-attributes*
 ; 	for i = 0 -> num-attr
 ;		add i to *other-attributes*
-; Ask for max subset size. Let this be m
+; Ask for max subset size. Let this be max-subset-size
 ; Create *coverings* to be empty ; Or do this at the beginning of the file
 ; Set main-part to be the partition(*decision-attributes*)
-; For list *other-attiributes*
-;	Check if the (proper-subset (partition #|attr|#) main-part)
-;		If yes add attr to *coverings* and remove it from *other-attributes*
+		(let (main-part (partition-1-attribute *da*))
+			; Code shits in this
+			)
 ; For i = 2 -> m
 ; Generate subset of size i
+(dotimes (m max-subset-size)
+	(case m 
+		((0)
+			; For list *other-attiributes*
+			;	Check if the (proper-subset (partition #|attr|#) main-part)
+			;		If yes add attr to *coverings* and remove it from *other-attributes*
+			)
+		((1)
+			(dotimes (i (- (length *other-attributes*) 1))
+				(if (proper-subset (list (nth i *other-attributes*) main-part)
+					()
+					)
+				)
+			)
+		((2)
+			(dotimes (i (- (length *other-attributes*) 1))
+				(if (proper-subset (list (nth i *other-attributes*) main-part)
+					()
+					)
+				)
+			)
+		((3)
+			)
+		((4)
+			)
+		((5)
+			)
+		((6)
+			)
+
+
+	)
 ;	check if a portion of the subset is included in *coverings*
 ;		then check (proper-subset (partition #|subset|#) main-part)
 ;			if yes add subset to *coverings*
@@ -113,6 +163,8 @@
 
 
 ;;;;;;;;;; Questions for Leopold ;;;;;;;;;;
+Max partition size
+Will data be numeric (floats or a range of numbers)
 
 
 
